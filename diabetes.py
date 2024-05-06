@@ -4,7 +4,7 @@
 #
 
 import pandas as pd
-# import matlptlib.pyplot as plt
+import matlptlib.pyplot as plt
 
 # Load data
 df = pd.read_csv("diabetes.csv")
@@ -26,4 +26,12 @@ df3 = df2.copy()
 df3 = df3.dropna()
 df3.shape
 
+# By group
 df.groupby('Outcome').mean()
+df.groupby(['Pregnancies'],'Outcome').mean()
+df.groupby(['Pregnancies'],'Outcome').value_counts()
+df.groupby(['Pregnancies'],'Outcome').value_counts(normalize=True)
+
+df[['BMI', 'Glucose']].plot.line()
+plt.title('Aliffa')
+plt.show()
